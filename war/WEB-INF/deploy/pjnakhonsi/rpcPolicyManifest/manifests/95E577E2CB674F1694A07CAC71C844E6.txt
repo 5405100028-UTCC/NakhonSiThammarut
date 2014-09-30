@@ -1,0 +1,2 @@
+serviceClass: utcc.ac.th.PJNakhonSi.client.GreetingService
+path: 0479E17939DD05E6BF40544D5772DB64.gwt.rpc
