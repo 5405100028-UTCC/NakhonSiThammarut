@@ -2,6 +2,7 @@
 import="java.sql.*" errorPage=" " %>
     
 <%
+request.setCharacterEncoding("UTF-8");
  String username_ses = (String)session.getAttribute("username11");
 
 %>
@@ -56,8 +57,8 @@ import="java.sql.*" errorPage=" " %>
 
 <!--  =========================================================== -->
 <br></br>
-<br></br>
-
+<marquee behavior="scroll" scrolldelay="100" ><div id="result"></div> </marquee>
+<form action="">
   <!-- ======================== Menu bar ========================= -->
   <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -110,11 +111,11 @@ import="java.sql.*" errorPage=" " %>
       </ul>
     </div>
   </div>
-  
+ </nav> 
 <!-- ====================== Carousel,Banner ====================== -->
-
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+ <center> <img src= "img-01.jpg" > </center>
+    
+      <!-- Indicators 
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -153,10 +154,15 @@ import="java.sql.*" errorPage=" " %>
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div>
-<br></br>
+    </div> -->
 
-<!-- ============================================================================== -->
+</form>
+<!--  ============================================================================== -->
+
+
+     
+<h2 class="page-header"></h2>    
+   
       <div class="row">
         <div class="col-lg-3">
           <center><img class="img-circle" src= "Photo/index2/index2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
@@ -190,6 +196,17 @@ import="java.sql.*" errorPage=" " %>
         <script>
             $(document).ready(function (){
                 $(".tool").tooltip();
+                var xmlhttp = new XMLHttpRequest();//สร้าง object 
+            	xmlhttp.onreadystatechange=function(){ //จับ event พอเกิด event ให้เรียก functionไม่มีชื่อ
+            		if(xmlhttp.readyState==4 && xmlhttp.status==200){
+            			document.getElementById("result").innerHTML = xmlhttp.responseText;//ใช่ domเข้าถึง <div>ผ่าน ID=resultโดยต้องการเปลี่ยนค่าที่ <div>
+            		}
+            	}
+            	var url = "Slide.jsp";
+            	//เปิด connection
+            	xmlhttp.open("GET",url,true);
+            	xmlhttp.send();
+            
             });
             
         </script>

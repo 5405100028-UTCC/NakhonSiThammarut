@@ -14,7 +14,7 @@ String dbusername = "5405100028";
 String dbpassword = "1234";
 
 if(strusername.equals(dbusername) && strpassword.equals(dbpassword)){
-	out.println("Welcome To Nakhon Si Thammarut"); 
+	//out.println("Welcome To Nakhon Si Thammarut"); 
 	session.setAttribute("username11",dbusername);
 	response.sendRedirect("index.jsp");
 	
